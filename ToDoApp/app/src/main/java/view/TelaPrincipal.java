@@ -13,8 +13,8 @@ import java.awt.event.WindowEvent;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
+import javax.swing.*;
+
 import model.Projeto;
 import model.Tarefa;
 import util.TarefaTableModel;
@@ -370,8 +370,7 @@ public final class TelaPrincipal extends javax.swing.JFrame {
     
     private void jLabelTarefaAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTarefaAddMouseClicked
       TarefaDialogTela tarefaDialogTela = new TarefaDialogTela(this, rootPaneCheckingEnabled);
-      Projeto projeto = (Projeto)
-              projetosModel.get(jListProjetos.getSelectedIndex());
+      Projeto projeto = (Projeto) projetosModel.get(jListProjetos.getSelectedIndex());
       tarefaDialogTela.setProjeto(projeto);
       tarefaDialogTela.setVisible(true);
 
@@ -393,7 +392,7 @@ public final class TelaPrincipal extends javax.swing.JFrame {
 
     private void jListProjetosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListProjetosMouseClicked
         int projetoIndex =jListProjetos.getSelectedIndex();
-        Projeto projeto = (Projeto)projetosModel.get(projetoIndex); //aqui fazemos um cast, porque nosso porjetoModel é um object
+        Projeto projeto = (Projeto) projetosModel.get(projetoIndex); //aqui fazemos um cast, porque nosso porjetoModel é um object
         // (Projeto)desta forma seta que meu object projetoModel é um projeto, seria um cast
         loadTarefas(projeto.getId());
         
@@ -472,7 +471,7 @@ public void initDataController(){
 }
 
 public void initComponentsModel() throws Exception {
-  projetosModel = new DefaultListModel();
+  projetosModel = new DefaultListModel<Projeto>();
   loadProjetos(); // carregar dados para dentro desse model, para exibir eles
   
   tarefaModel = new TarefaTableModel();
@@ -487,7 +486,7 @@ public void initComponentsModel() throws Exception {
 
   
             int projectIndex = jListProjetos.getSelectedIndex();
-            Projeto projeto =  
+            Projeto projeto =
                     (Projeto) projetosModel.get(projectIndex);
             
 
@@ -533,7 +532,7 @@ public void loadProjetos() throws Exception {
    
    for(int i=0; i< projetos.size(); i++){
        Projeto projeto = projetos.get(i);  // aqui add todos os projetos carregados dentro do model
-       projetosModel.addElement(projetos);
+       projetosModel.addElement(projeto);
    }
    // vincular o model criado com o jList da interface
    jListProjetos.setModel(projetosModel);

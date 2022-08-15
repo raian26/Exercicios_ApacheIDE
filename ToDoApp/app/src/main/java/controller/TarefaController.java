@@ -137,7 +137,7 @@ public class TarefaController {
         
         // Montagem da QuerySQL, para buscar a tarefa com base no projeto ao qual a tarefa pertence
         String sql = "SELECT * FROM tarefas";
-        List<Tarefa> tarefas = new ArrayList<Tarefa>(); //Lista de tarefas que será devolvida quando a chamada do metodo acontecer
+        List<Tarefa> tarefas = new ArrayList<>(); //Lista de tarefas que será devolvida quando a chamada do metodo acontecer
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;       // objeto que representa o retorno(resposta) do banco de dados, ou seja guarda a resp do banco de dados

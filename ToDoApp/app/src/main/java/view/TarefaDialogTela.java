@@ -179,7 +179,7 @@ public class TarefaDialogTela extends javax.swing.JDialog {
     private void jLabelToolBarTarefaSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelToolBarTarefaSaveMouseClicked
       try{
            Tarefa tarefa = new Tarefa();
-       tarefa.setIdprojeto(3);
+       tarefa.setIdprojeto(projeto.getId());
        tarefa.setNome(jTextFieldNome.getText());
        tarefa.setDescricao(jTextDescricao.getText());
        tarefa.setObservacao(jTextArea2.getText());
